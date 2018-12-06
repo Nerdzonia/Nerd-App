@@ -9,6 +9,9 @@
 <title>Admin Page</title>
 </head>
 <body>
+	<ul>
+		<li><a href="${pageContext.request.contextPath}/admin/">Back</a></li>
+	</ul>
 	<table>
 		<th>Name</th>
 		<c:forEach items="${media}" var="media">

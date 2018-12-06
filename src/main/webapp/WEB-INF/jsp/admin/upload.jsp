@@ -7,6 +7,9 @@
 <title>AdminPage</title>
 </head>
 <body>
+	<ul>
+		<li><a href="${pageContext.request.contextPath}/admin/">Back</a></li>
+	</ul>
 	<h2>PNG - JPG - MP4</h2>
 	<form method="post" action="uploadfile" enctype="multipart/form-data">
 		<input type="text" name="title" placeholder="Movie Title">

