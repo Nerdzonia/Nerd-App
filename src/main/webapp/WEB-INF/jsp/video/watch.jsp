@@ -24,7 +24,7 @@
 			<div class="box">
 				<div class="color comment-title">${comment.person.name}</div>
 					<div class="color comment-comment row">
-						${comment.comment}
+						<p>${comment.comment}</p>
 					</div>		
 					<article>${comment.datetime}</article>
 					<c:if test="${comment.person.code == userSession.person.code}">

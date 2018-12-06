@@ -7,9 +7,7 @@
 <body>
     <%@ include  file="../include/menu.jsp" %>    
     <section>
-    	<ul>
-    		<li><a href="index">Voltar</a></li>
-    	</ul>
+		<center>
     	<span class="account"></span>
         <div class="box">
             <div class="boxAccoutSettings">
@@ -84,6 +82,7 @@
                 </form>
             </div>
         </div>
+        </center>
     </section>
     <%@ include file="../include/footer.jsp" %>
 </body>
