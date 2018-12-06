@@ -9,13 +9,23 @@
 </head>
 <body>
 	<h1>${media.name}</h1>
+        
 	<h2>Media Tags</h2>
+      
 	<c:forEach items="${mediaTag}" var="mediaTag">
-		<p>Remove: <a href="#">${mediaTag.tag.nameTag}</a></p>
-	</c:forEach>
+            <p>Remove: <a href="#">${mediaTag.tag.tagName}</a></p>
+        </c:forEach>         
+            
 	<h3>Tag List</h2>
-	<c:forEach items="${tag}" var="tag">
-		<p>Add: <a href="#">${tag.tagName}</a></p>
-	</c:forEach>
+        
+        <c:forEach items="${mediaTag}" var  ="mediaTag">              
+                <c:forEach items="${tag}" var="tag">
+                    <c:if test = "${tag.tagName != mediaTag.tag.tagName}">
+                       <c:if test = "${}">
+                            <p>Add: <a href="${pageContext.request.contextPath}/admin/movie/addTag/${tag.code}/${media.code}">${tag.tagName}</a></p>                                              
+                       </c:if>
+                    </c:if>
+                </c:forEach>   
+        </c:forEach>       
 </body>
 </html>

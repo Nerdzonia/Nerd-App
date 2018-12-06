@@ -28,7 +28,6 @@ public class MovieController {
 	MediaTagRepository mediaTagRepository = new MediaTagRepository();
 	TagRepository tagRepository = new TagRepository();
 	
-	//main return all media in database
 	@Get("/")
 	public void edittagmovie() {
 		if(userSession.getPerson().getAdmin().equals("1")) {
@@ -38,8 +37,21 @@ public class MovieController {
 			result.redirectTo(HomeController.class).home();
 		}
 	}
+        
+        @Get("addTag/{codeTag}/{codeMovie}")
+        public void addtagmovie(String codeTag, String codeMovie){
+            if(userSession.getPerson().getAdmin().equals("1")) {
+                Tag tag = tagRepository.searchTagByCode(codeTag);
+                Media media = mediaRepository.searchMediaCode(codeMovie);
+                MediaTags mediaTags = new MediaTags();
+                mediaTags.setTag(tag);
+                mediaTags.setMedia(media);
+                mediaTags.mediaTagUuid();
+                mediaTagRepository.saveMediaTag(mediaTags);
+                result.redirectTo(this).movietagmanager(media.getCode());
+            }
+        }
 	
-	//get url code and search this in database 
 	@Get("edit/{code}")
 	public void movietagmanager(String code) {
 		if(userSession.getPerson().getAdmin().equals("1")) {
