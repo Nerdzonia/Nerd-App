@@ -41,7 +41,8 @@ public class MediaTagRepository {
         EntityManager em = FactoryManager.getManager();
         try {
             em.getTransaction().begin();
-            em.remove(mediaTag);
+            MediaTags mt = em.find(MediaTags.class, mediaTag.getCode());
+            em.remove(mt);
             em.getTransaction().commit();
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -79,6 +80,19 @@ public class MediaTagRepository {
         } finally {
             em.close();
         }
+    }
+    
+    public MediaTags searhMediaByUniqueResultCode(String code) {
+    	EntityManager em = FactoryManager.getManager();
+    	try {
+    		return em.find(MediaTags.class, code);
+    	}catch (Exception e) {
+    		em.getTransaction().rollback();
+    		System.out.println(e.getMessage());
+    		return null;
+    	}finally {
+    		em.close();
+    	}
     }
     
     public List<MediaTags> searchTagByMediaCode(String code){

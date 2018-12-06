@@ -13,19 +13,15 @@
 	<h2>Media Tags</h2>
       
 	<c:forEach items="${mediaTag}" var="mediaTag">
-            <p>Remove: <a href="#">${mediaTag.tag.tagName}</a></p>
-        </c:forEach>         
+            <br>Remove: <a href="${pageContext.request.contextPath}/admin/movie/removeTag/${mediaTag.code}">${mediaTag.tag.tagName}</a>
+    </c:forEach>         
             
 	<h3>Tag List</h2>
-        
-        <c:forEach items="${mediaTag}" var  ="mediaTag">              
-                <c:forEach items="${tag}" var="tag">
-                    <c:if test = "${tag.tagName != mediaTag.tag.tagName}">
-                       <c:if test = "${}">
-                            <p>Add: <a href="${pageContext.request.contextPath}/admin/movie/addTag/${tag.code}/${media.code}">${tag.tagName}</a></p>                                              
-                       </c:if>
-                    </c:if>
-                </c:forEach>   
-        </c:forEach>       
+		<c:if test="${newTag != null}">
+			<c:forEach items="${newTag}" var="varTag">
+    			<br>Add: <a href="${pageContext.request.contextPath}/admin/movie/addTag/${varTag.code}/${media.code}">${varTag.tagName}</a>
+    		</c:forEach>
+		</c:if>
+             
 </body>
 </html>
