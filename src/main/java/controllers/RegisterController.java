@@ -38,7 +38,7 @@ public class RegisterController {
 	public void sendRegister(String name, String email, String nickname, String password, String confirmPassword) {
 		Person p = personRepository.searchSpecificEntityValueIntoPerson("profile", "email", email);
 		if (p == null && password.equals(confirmPassword)) {
-			final Person person = new Person();
+			Person person = new Person();
 			Profile profile = new Profile();
 			Address address = new Address();
 
